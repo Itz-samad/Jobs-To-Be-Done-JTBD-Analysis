@@ -18,10 +18,13 @@ The goal of this project is to compare these clustering techniques to identify t
 
 ## Repository Structure
 - **Main Branch**: Contains the README and general information about the project.
-- **Ward-Method-(Algorithm)**: Implements hierarchical clustering using the Ward Method.
-- **K-Means-Clustering**: Focuses on K-Means Clustering.
-- **HDBSCAN-Algorithm**: Implements the HDBSCAN algorithm.
-- **Nearest-Neighbors-Analysis-(NNA)**: Uses a nearest neighbors approach.
+- **Ward-Method-(Algorithm)**: Implements hierarchical clustering using the Ward Method. Two Dendogram Ploted using the Algorithm (one Ploted from dataset that has resistance included in it's dataset, and the other doesn't) and two scatter plot for Visualization 
+
+- **K-Means-Clustering**: Focuses on K-Means Clustering. Two Dendogram Ploted using the Algorithm (one Ploted from dataset that has resistance included in it's dataset, and the other doesn't) and two scatter plot for Visualization 
+
+- **HDBSCAN-Algorithm**: Implements the HDBSCAN algorithm. Four Dendogram Ploted using the Algorithm (Two Ploted from dataset that has resistance included in it's dataset, and the others doesn't) and two scatter plot for Visualization 
+
+- **Nearest-Neighbors-Analysis-(NNA)**: Uses a nearest neighbors approach. Two Dendogram Ploted using the Algorithm (one Ploted from dataset that has resistance included in it's dataset, and the other doesn't) and two scatter plot for Visualization 
 
 ## Features
 - **Dataset**: The dataset used in this project comes from Jobs-To-Be-Done interviews, formatted as a CSV file.
