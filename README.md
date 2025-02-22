@@ -24,7 +24,9 @@ The goal of this project is to compare these clustering techniques to identify t
 
 - **HDBSCAN-Algorithm**: Implements the HDBSCAN algorithm. Four Dendogram Ploted using the Algorithm (Two Ploted from dataset that has resistance included in it's dataset, and the others doesn't) and two scatter plot for Visualization 
 
-- **Nearest-Neighbors-Analysis-(NNA)**: Uses a nearest neighbors approach. Two Dendogram Ploted using the Algorithm (one Ploted from dataset that has resistance included in it's dataset, and the other doesn't) and two scatter plot for Visualization 
+- **Nearest-Neighbors-Analysis-(NNA)**: Uses a nearest neighbors approach. Two Dendogram Ploted using the Algorithm (one Ploted from dataset that has resistance included in it's dataset, and the other doesn't) and two scatter plot for Visualization
+
+- - **jtbd-streamlit-app**: contains the streamlit app for the jobs to be done models
 
 ## Features
 - **Dataset**: The dataset used in this project comes from Jobs-To-Be-Done interviews, formatted as a CSV file.
