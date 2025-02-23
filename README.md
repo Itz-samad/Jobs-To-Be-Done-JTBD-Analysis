@@ -1,6 +1,5 @@
 # Jobs-To-Be-Done-(JTBD)-Analysis
 
-
 This project is dedicated to analyzing and comparing different hierarchical clustering algorithms on the same dataset derived from Jobs-To-Be-Done (JTBD) interviews. Each branch of the repository implements a specific clustering algorithm, allowing for a detailed exploration of their behavior and performance. Except the jtbd-streamlit-app branch, which holds the streamlit app 
 
 ## Overview
