@@ -12,10 +12,10 @@ def main():
 
 
     # Checkbox: Does the dataset have a header row?
-    header_option = st.checkbox("Header?", value=True)
+    header_option = st.checkbox("Does the dataset have a header row?", value=True)
     
     # Checkbox: Is the first column the ID column?
-    id_column_option = st.checkbox("Is Index Column Story ID/Number?", value=True)
+    id_column_option = st.checkbox("Does the index column represent the Story ID or number?", value=True)
     
     # Delimiter selection using radio buttons with a placeholder (only used for CSV/TXT files)
     delim_options = {

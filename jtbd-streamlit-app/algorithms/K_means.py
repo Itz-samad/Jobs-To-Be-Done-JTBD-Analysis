@@ -41,7 +41,7 @@ def dendogram_plotting(X, df, kmeans):
 
     fig, ax = plt.subplots(figsize=(15, 8))
     dendrogram(linkage_matrix, labels=df["Story_ID"].values, leaf_rotation=90, leaf_font_size=10)
-    ax.set_title("Dendrogram using Ward's Method")
+    ax.set_title("Dendrogram using K-means Clustering")
     ax.set_xlabel("Stories")
     ax.set_ylabel("Distance")
     st.pyplot(fig)
