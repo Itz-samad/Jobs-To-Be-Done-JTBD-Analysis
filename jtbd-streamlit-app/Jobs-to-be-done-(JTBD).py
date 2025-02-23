@@ -7,6 +7,12 @@ from algorithms import Ward, HDBSCAN, K_means, NNA
 def main():
     st.title("Jobs To Be Done (JTBD) Analysis")
     
+    st.markdown(
+        "This JTBD Analysis app clusters stories based on the forces driving customer behavior — whether it’s push and pull factors alone or combined with inertia and anxiety as forces of resistance. Simply upload your dataset (with each story as a row and the first column as the story ID), and the app will visualize (With the aid of a dendogram) how these forces are Similar."
+    )
+
+
+
     # File upload: allow CSV, Excel, and TXT files
     uploaded_file = st.file_uploader("Upload dataset", type=["csv", "xlsx", "xls", "txt"])
 
