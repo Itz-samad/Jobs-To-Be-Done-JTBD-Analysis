@@ -26,7 +26,7 @@ def main():
     }
     delim_choice = st.radio(
         "Select separator (for CSV/TXT files)", 
-        options=["--Select delimiter--"] + list(delim_options.keys())
+        options=["--None-"] + list(delim_options.keys())
     )
     
     
@@ -59,7 +59,7 @@ def main():
         file_extension = uploaded_file.name.split('.')[-1].lower()
         
         # For CSV/TXT, ensure a delimiter is selected
-        if file_extension in ['csv', 'txt'] and delim_choice == "--Select delimiter--":
+        if file_extension in ['csv', 'txt'] and delim_choice == "--None--":
             st.error("Please select a separator for CSV/TXT files.")
             return
         
