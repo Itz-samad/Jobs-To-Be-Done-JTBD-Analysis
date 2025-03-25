@@ -4,12 +4,14 @@ channels:
 dependencies:
   - python=3.11
   - pip
-  - pandas
-  - numpy
-  - matplotlib
-  - scipy
-  - scikit-learn
-  - seaborn
-  - openpyxl
+  
   - pip:
+      - streamlit
       - hdbscan
+      - pandas
+      - numpy
+      - matplotlib
+      - scipy
+      - scikit-learn
+      - seaborn
+      - openpyxl
