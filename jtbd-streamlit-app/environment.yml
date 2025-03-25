@@ -1,17 +1,1 @@
-name: streamlit_env
-channels:
-  - defaults
-dependencies:
-  - python=3.11
-  - pip
-  
-  - pip:
-      - streamlit
-      - hdbscan
-      - pandas
-      - numpy
-      - matplotlib
-      - scipy
-      - scikit-learn
-      - seaborn
-      - openpyxl
+
