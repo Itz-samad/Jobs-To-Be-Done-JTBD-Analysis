@@ -1,9 +1,9 @@
 name: streamlit_env
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - python=3.8
-  - pip
   - pandas
   - numpy
   - matplotlib
@@ -11,5 +11,4 @@ dependencies:
   - scikit-learn
   - seaborn
   - openpyxl
-  - pip:
-      - hdbscan
+  - hdbscan
