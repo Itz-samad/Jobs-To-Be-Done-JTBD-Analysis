@@ -6,51 +6,42 @@ from sklearn.cluster import KMeans
 from hdbscan import HDBSCAN
 from scipy.spatial.distance import jensenshannon
 import numpy as np
+from sklearn.decomposition import PCA
 
 def run(df):
     st.header("HDBSCAN Clustering")
-    # Drop the Story_ID column (non-numeric data)
+    # Drop the Story_ID column (non-numeric data)   
     X = df.drop(columns=["Story_ID"])
 
+    pca = PCA(n_components=3)
+    X_pca = pca.fit_transform(X)
+
     # Initialize and fit HDBSCAN
-    clusterer = HDBSCAN(min_cluster_size=3, min_samples=1, metric="euclidean")
-    labels = clusterer.fit_predict(X)
+    clusterer = HDBSCAN(min_cluster_size=3, min_samples=2, metric="euclidean")
+    
+    labels = clusterer.fit_predict(X_pca)
+
     
     # Optionally add cluster labels to your original DataFrame if desired
     df["Cluster"] = labels
-    st.write("Clustered Successfuly")    
-    return X, df, labels, clusterer
+    st.write("Clustered Successfully")    
+    return X_pca, labels
 
-def dendogram_plotting(X, df, labels, clusterer):
-    probabilities = clusterer.probabilities_
 
-    # Construct Similarity Matrix Using HDBSCAN Clusters
-    num_stories = len(X)
-    similarity_matrix = np.zeros((num_stories, num_stories))
+def plot_hdbscan_scatter(X_pca, labels):
+    fig, ax = plt.subplots(figsize=(10, 8))
 
-    for i in range(num_stories):
-        for j in range(num_stories):
-            if i == j:
-                similarity_matrix[i, j] = 1.0  # Perfect similarity with itself
-            elif labels[i] == labels[j] and labels[i] != -1:  # Same cluster, exclude noise
-                # Use product of membership probabilities as similarity
-                similarity_matrix[i, j] = probabilities[i] * probabilities[j]
-            else:
-                similarity_matrix[i, j] = 0.0  # Different clusters or noise
+    # Plot the scatter plot on the axes
+    scatter = ax.scatter(X_pca[:, 0], X_pca[:, 2], c= labels,
+                        cmap='viridis', s=50, alpha=0.7, edgecolors='k')
 
-    # Convert similarity to dissimilarity (1 - similarity)
-    dissimilarity_matrix = 1 - similarity_matrix
+    # Add a colorbar to the figure (linked to the scatter plot)
+    fig.colorbar(scatter, ax=ax)
 
-    # Generate Pseudo-Hierarchical Linkage
-    linkage_matrix = linkage(dissimilarity_matrix, method="average")
+    # Set the title and axis labels
+    ax.set_title('HDBSCAN Clustering')
+    ax.set_xlabel('Feature 1')
+    ax.set_ylabel('Feature 2')
 
-    fig, ax = plt.subplots(figsize=(20, 13))
-    dendrogram(linkage_matrix, labels=df["Story_ID"].values, leaf_rotation=90, leaf_font_size=10)
-    ax.set_title("Dendrogram using HDBSCAN")
-    ax.set_xlabel("Stories")
-    ax.set_ylabel("Distance")
+    # Display the figure in your Streamlit app
     st.pyplot(fig)
-
-
-
-

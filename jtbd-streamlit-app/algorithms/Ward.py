@@ -15,7 +15,7 @@ def run(df):
     
     # Add cluster labels to the dataframe
     df["Cluster"] = labels
-    st.write("Clustered Successfuly")    
+    st.write("Clustered Successfully")    
     return df, linkage_matrix
 
 def dendogram_plotting(df, linkage_matrix):

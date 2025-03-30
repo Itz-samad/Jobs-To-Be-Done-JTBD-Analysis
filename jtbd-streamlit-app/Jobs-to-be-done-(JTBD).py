@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import warnings
+warnings.filterwarnings("ignore")
+
 
 # Import your algorithms (adjust paths as needed)
 from algorithms import Ward, HDBSCAN, K_means, NNA
@@ -8,7 +11,7 @@ def main():
     st.title("Jobs To Be Done (JTBD) Analysis")
     
     st.markdown(
-        "This JTBD Analysis app clusters stories based on the forces driving customer behavior — whether it’s push and pull factors alone or combined with inertia and anxiety as forces of resistance. Simply upload your dataset (with each story as a row), and the app will visualize (With the aid of a dendogram) how these Stories are Similar."
+        "This JTBD Analysis app clusters stories based on the forces driving customer behavior — whether it’s push and pull factors alone or combined with inertia and anxiety as forces of resistance. Simply upload your dataset (with each story as a row), and the app will visualize (With the aid of a diagram) how these Algorithms cluster and view these stories."
     )
 
 
@@ -114,14 +117,17 @@ def main():
                 data, link_mat = Ward.run(df)
                 Ward.dendogram_plotting(data, link_mat)
             elif algorithm == "HDBSCAN":
-                X, data, labels, clusterer = HDBSCAN.run(df)
-                HDBSCAN.dendogram_plotting(X, data, labels, clusterer)
+                X, labels = HDBSCAN.run(df)
+                # HDBSCAN.dendogram_plotting(X, data, labels, clusterer)
+                HDBSCAN.plot_hdbscan_scatter(X, labels)
             elif algorithm == "K-means Clustering":
-                X, data, kmesns = K_means.run(df)
-                K_means.dendogram_plotting(X, data, kmesns)
+                X_pca, labels, kmesns = K_means.run(df)
+                # K_means.dendogram_plotting(X, data, kmesns)
+                K_means.plot_kmeans_scatter(X_pca, labels, kmesns)
             elif algorithm == "NNA Analysis":
-                X, data, indices = NNA.run(df)
-                NNA.dendogram_plotting(X, data, indices)
+                X, labels = NNA.run(df)
+                # NNA.dendogram_plotting(X, data, indices)
+                NNA.plot_knn_dbscan_scatter(X, labels)
         except Exception as e:
             st.error(f"An error occurred while processing the file: {e}")
 
