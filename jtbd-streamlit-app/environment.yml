@@ -1,7 +1,8 @@
 name: streamlit_env
 channels:
-  - conda-forge
-  - defaults
+  - https://repo.anaconda.com/pkgs/snowflake
+  - nodefaults
+  - snowflake
 dependencies:
   - python=3.8
   - pandas
